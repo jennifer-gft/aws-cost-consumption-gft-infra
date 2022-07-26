@@ -20,7 +20,7 @@ data "archive_file" "create_pkg" {
 }
 
 resource "aws_lambda_function" "aws_lambda" {
-  function_name = "${var.prefix}-client-report-generator"
+  function_name = "${var.prefix}-gft-report-generator"
   description   = "Generate cost consumption report"
   handler       = "lambda.lambda_handler"
   runtime       = "python3.7"
@@ -36,12 +36,12 @@ resource "aws_lambda_function" "aws_lambda" {
   environment {
     variables = {
       region       = var.region
-      client_name  = var.client_name
-      project_name = var.project_name
-      description  = var.project_description
-      client_env   = var.client_env
-      total_env    = var.total_client_env
+      sqs          = var.sqs
     }
-
   }
+}
+
+resource "aws_lambda_event_source_mapping" "example" {
+  event_source_arn = var.sqs
+  function_name    = aws_lambda_function.aws_lambda.function_name
 }
