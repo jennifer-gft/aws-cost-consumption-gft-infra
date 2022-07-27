@@ -30,3 +30,15 @@ variable "availability_zones" {
   description = "AZ of the region"
   default     = ["eu-west-2a", "eu-west-2b", "eu-west-2c"]
 }
+
+variable "db_username" {
+  description = "Database administrator username"
+  type        = string
+  sensitive   = true
+}
+
+variable "db_password" {
+  description = "Database administrator password"
+  type        = string
+  sensitive   = true
+}
