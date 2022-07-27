@@ -8,7 +8,7 @@ terraform {
 
   }
   backend "s3" {
-    bucket = "gftcostconsumption-tfstate"
+    bucket = "gftcostconsumptions3"
     key    = "gftccstate/terraform.tfstate"
     region = "eu-west-2"
   }
