@@ -58,3 +58,16 @@ variable "db_password" {
   type        = string
   sensitive   = true
 }
+
+variable "prefix" {
+  type = string
+}
+
+variable "project_name" {
+  type = string
+}
+
+variable "sqs" {
+  type = string
+}
+
