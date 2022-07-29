@@ -1,8 +1,7 @@
-resource "aws_db_instance" "mydb1" {
+resource "aws_db_instance" "rds-db" {
   allocated_storage        = 256 # gigabytes
   backup_retention_period  = 7   # in days
-  db_subnet_group_name     = lookup(aws_subnet.public_subnet, aws_subnet.public_subnet.tags[count.index])###public subnets must be a look-up from main.tf
-  count = 0
+  db_subnet_group_name     =  "main-rds-group" //lookup(aws_subnet.public_subnet, aws_subnet.public_subnet.tags[count.index])###public subnets must be a look-up from main.tf
   engine                   = "postgres"
   engine_version           = "10"
   identifier               = "gftclientdb"
@@ -22,7 +21,7 @@ resource "aws_db_instance" "mydb1" {
 resource "aws_security_group" "mydb1" {
   name = "mydb1"
 
-  description = "RDS postgres servers (terraform-managed)"
+  description = "RDS postgres servers"
   vpc_id = "${aws_vpc.vpc.id}" ###lookup from main.tf vpc 
 
   # Only postgres in
@@ -39,5 +38,15 @@ resource "aws_security_group" "mydb1" {
     to_port = 0
     protocol = "-1"
     cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+
+
+resource "aws_db_subnet_group" "rds" {
+  name       = "main-rds-group"
+  subnet_ids = [for s in aws_subnet.public_subnet : s.id] 
+
+  tags = {
+    Name = "main-rds-group"
   }
 }
