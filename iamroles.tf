@@ -48,21 +48,19 @@ resource "aws_iam_policy" "lambda_policy" {
         },
         {
             "Action" : [
-                "sqs:SendMessage",
-                "sqs:DeleteMessage",
-                "sqs:ChangeMessageVisibility",
-                "sqs:ReceiveMessage",
-                "sqs:TagQueue",
-                "sqs:UntagQueue",
-                "sqs:PurgeQueue",
-                "sqs:GetQueueUrl"
+                "sqs:*"
                 ],
                 "Effect" : "Allow",
-                "Resource" : "*"
+                "Resource" : "arn:aws:sqs:eu-west-2:484165963982:dev-report-delivery-queue"
         }
     ],
     
     "Version": "2012-10-17"
 }
 EOF
+}
+
+resource "aws_iam_role_policy_attachment" "additional_policies" {
+  role       = aws_iam_role.lambda_role.name
+  policy_arn = aws_iam_policy.lambda_policy.arn
 }

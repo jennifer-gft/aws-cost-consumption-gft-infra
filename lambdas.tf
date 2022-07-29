@@ -27,7 +27,7 @@ resource "aws_lambda_function" "aws_lambda" {
 
   role        = aws_iam_role.lambda_role.arn
   memory_size = 128
-  timeout     = 300
+  timeout     = 60
 
   depends_on       = [null_resource.install_python_dependencies]
   source_code_hash = data.archive_file.create_pkg.output_base64sha256
