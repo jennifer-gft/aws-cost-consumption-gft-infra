@@ -34,7 +34,7 @@ def lambda_handler(event, context):
       
     try:
         connection = psycopg2.connect(user="gftadmin",
-                                  password="foo12345678",
+                                  password="testtttttt",
                                   host="gftclientdb.c7pd8q3l1nhp.eu-west-2.rds.amazonaws.com",
                                   port="5432",
                                   database="gftclientdb")
