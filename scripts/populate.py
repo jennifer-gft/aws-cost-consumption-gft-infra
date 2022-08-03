@@ -53,7 +53,7 @@ def lambda_handler(event, context):
             
     sql_create_table = """
         CREATE TABLE IF NOT EXISTS customers (
-            client_id int,
+            client_id int NOT NULL,
             client_name varchar(255),
             project varchar(255),
             environment varchar(255),
@@ -64,12 +64,19 @@ def lambda_handler(event, context):
 
         CREATE TABLE IF NOT EXISTS customer forecast (
             client_id int NOT NULL,
-            client_name varchar(255),
-            project varchar(255),
-            environment varchar(255),
-            total_aws_accounts int,
-            descriptions varchar(255),
-            
+            time_period_start date,
+            time_period_end date,
+            value varchar(255),
+            comments varchar(255)
+        );
+
+        CREATE TABLE IF NOT EXISTS services_gft (
+            client_id int NOT NULL,
+            aws_service varchar(255)
+            time_period_start date,
+            time_period_end date,
+            value varchar(255),
+            comments varchar(255)
         );
     """
 
