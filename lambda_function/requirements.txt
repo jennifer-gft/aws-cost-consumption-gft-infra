@@ -1,1 +1,2 @@
-psycopg2==2.7.6
+psycopg2-binary
+boto3
