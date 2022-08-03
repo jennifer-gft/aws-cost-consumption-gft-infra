@@ -6,14 +6,14 @@ chmod +x requirements.txt
 
 FILE=requirements.txt
 
-# if [ -f "$FILE" ]; then
-#   echo "Installing dependencies..."
-#   echo "From: requirement.txt file exists..."
-#   pip3 install --target ./package -r "$FILE"
+if [ -f "$FILE" ]; then
+  echo "Installing dependencies..."
+  echo "From: requirement.txt file exists..."
+  pip3 install --target ./package -r "$FILE"
 
-# else
-#   echo "Error: requirements.txt does not exist!"
-# fi
+else
+  echo "Error: requirements.txt does not exist!"
+fi
 cd package/
 FILE=populate.py
 
