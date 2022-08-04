@@ -7,6 +7,11 @@ terraform.tfvars
 .terraform.lock.hcl
 tfplan
 
+package/*
+
 
 
 *.zip
+
+####don't ignore these files
+!package/populate.py

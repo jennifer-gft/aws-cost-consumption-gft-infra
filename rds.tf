@@ -1,7 +1,7 @@
 resource "aws_db_instance" "rds-db" {
   allocated_storage        = 256 # gigabytes
   backup_retention_period  = 7   # in days
-  db_subnet_group_name     =  "main-rds-group" //lookup(aws_subnet.public_subnet, aws_subnet.public_subnet.tags[count.index])###public subnets must be a look-up from main.tf
+  db_subnet_group_name     = "main-rds-group" //lookup(aws_subnet.public_subnet, aws_subnet.public_subnet.tags[count.index])###public subnets must be a look-up from main.tf
   engine                   = "postgres"
   engine_version           = "10"
   identifier               = "gftclientdb"
@@ -16,6 +16,13 @@ resource "aws_db_instance" "rds-db" {
   storage_type             = "gp2"
   username                 = var.db_username
   vpc_security_group_ids   = ["${aws_security_group.mydb1.id}"]
+  final_snapshot_identifier = "foo"
+  skip_final_snapshot      = true
+
+  # provisioner "local-exec" {
+  #   command = "sh scripts/create_pkg.sh"
+    
+  # }
 }
 
 resource "aws_security_group" "mydb1" {
