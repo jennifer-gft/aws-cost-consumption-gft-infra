@@ -20,6 +20,7 @@ output "rds_name" {
 
 output "rds_username" {
   value = aws_db_instance.rds-db.username
+  sensitive=true
 }
 
 output "rds_port" {

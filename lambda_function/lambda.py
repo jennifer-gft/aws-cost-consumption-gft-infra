@@ -37,8 +37,6 @@ def lambda_handler(event, context):
         if res['report_type'] == "usage":
             results=res['ResultsByTime']
             for record in results:
-               print(record)
-               print(record['TimePeriod']['Start'])
                time_period_start=record['TimePeriod']['Start']
                time_period_end=record['TimePeriod']['End']
                resource_list=[]
@@ -48,8 +46,6 @@ def lambda_handler(event, context):
                    cost=cost+float(resources['Metrics']['BlendedCost']['Amount'])
                aws_service = ','.join(resource_list)
                value = round(cost, 2)
-               print(aws_service)
-               print(value)
                cursor.execute("INSERT INTO public.services (client_id, aws_services, time_period_start, time_period_end, value, additional_comments) VALUES (%s, %s, %s, %s, %s, %s)" \
                 ,(id_of_row, aws_service, time_period_start, time_period_end, value, description))
             
@@ -59,16 +55,14 @@ def lambda_handler(event, context):
             print("Trying forecast")
             results=res['ForecastResultsByTime']
             for record in results:
-                print(record)
                 forecast_period_start=record['TimePeriod']['Start']
                 forecast_period_end=record['TimePeriod']['End']
-                amount=round(float(record['MeanValue']), 2)
+                amount=float(record['MeanValue'])
                 if int(total_aws_accounts) > 1:
                     comments= "Amount times "+ total_aws_accounts + " accounts"
-                    print(comments)
                 cursor.execute("INSERT INTO public.forecast (client_id, time_period_start, time_period_end, amount, additional_comments) VALUES(%s,%s,%s,%s,%s) " \
-                    " ON CONFLICT ON CONSTRAINT customer_un DO " \
-                    " UPDATE amount=%s, additional_comments=%s ",(id_of_row, forecast_period_start,forecast_period_end,amount,comments, amount, comments)) 
+                    " ON CONFLICT ON CONSTRAINT forecast_un DO " \
+                    " NOTHING",(id_of_row, forecast_period_start,forecast_period_end,amount,comments)) 
             
             print("Forecast stored successfully for client ",client_name)
 
