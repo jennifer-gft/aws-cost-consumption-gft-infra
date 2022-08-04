@@ -2,7 +2,7 @@
 import boto3
 import json
 import psycopg2
-
+import os
 
 
 def lambda_handler(event, context):
@@ -15,11 +15,11 @@ def lambda_handler(event, context):
     environment = res["client_env"]
     total_aws_accounts = res["total_env"]
     try:
-        connection = psycopg2.connect(user="gftadmin",
-                                  password="foo12345678",
-                                  host="gftclientdb.c7pd8q3l1nhp.eu-west-2.rds.amazonaws.com",
-                                  port="5432",
-                                  database="gftclientdb")
+        connection = psycopg2.connect(user=os.getenv("db_username", default=None),
+                                  password=os.getenv("db_password", default=None),
+                                  host=os.getenv("db_host", default=None),
+                                  port=os.getenv("db_port", default=5432),
+                                  database=os.getenv("db_name", default=None))
         print(connection)
         cursor = connection.cursor()
 
@@ -28,12 +28,11 @@ def lambda_handler(event, context):
         if cursor.rowcount > 0:
             id_of_row = cursor.fetchone()[0]
         else:
-            cursor.execute("INSERT INTO public.customer ( client_name, project, environment, total_aws_accounts, description) VALUES (%s,%s,%s,%s,%s) ON CONFLICT ON CONSTRAINT customer_un DO NOTHING",(client_name, project, environment, total_aws_accounts, description))
+            cursor.execute("INSERT INTO public.customer ( client_name, project, environment, total_aws_accounts, description) VALUES (%s,%s,%s,%s,%s) ON CONFLICT ON CONSTRAINT "\
+                "customer_un DO NOTHING",(client_name, project, environment, total_aws_accounts, description))
             id_of_row = cursor.fetchone()[0]        
-        print("Customer id => ",id_of_row)
-        #id_of_row = cursor.fetchone()[0]
-        #count = cursor.rowcount
-        #print(id_of_row, "Customer record inserted successfully into table")
+        print("Client id => ",id_of_row)
+
     
         if res['report_type'] == "usage":
             results=res['ResultsByTime']
@@ -51,7 +50,8 @@ def lambda_handler(event, context):
                value = round(cost, 2)
                print(aws_service)
                print(value)
-               cursor.execute("INSERT INTO public.services (client_id, aws_services, time_period_start, time_period_end, value, additional_comments) VALUES (%s, %s, %s, %s, %s, %s)",(id_of_row, aws_service, time_period_start, time_period_end, value, "Test"))
+               cursor.execute("INSERT INTO public.services (client_id, aws_services, time_period_start, time_period_end, value, additional_comments) VALUES (%s, %s, %s, %s, %s, %s)" \
+                ,(id_of_row, aws_service, time_period_start, time_period_end, value, description))
             
             print("Account usage details stored successfully for client ",client_name)
             
@@ -66,7 +66,9 @@ def lambda_handler(event, context):
                 if int(total_aws_accounts) > 1:
                     comments= "Amount times "+ total_aws_accounts + " accounts"
                     print(comments)
-                cursor.execute("INSERT INTO public.forecast (client_id, time_period_start, time_period_end, amount, additional_comments) VALUES(%s,%s,%s,%s,%s)",(id_of_row, forecast_period_start,forecast_period_end,amount,comments))
+                cursor.execute("INSERT INTO public.forecast (client_id, time_period_start, time_period_end, amount, additional_comments) VALUES(%s,%s,%s,%s,%s) " \
+                    " ON CONFLICT ON CONSTRAINT customer_un DO " \
+                    " UPDATE amount=%s, additional_comments=%s ",(id_of_row, forecast_period_start,forecast_period_end,amount,comments, amount, comments)) 
             
             print("Forecast stored successfully for client ",client_name)
 

@@ -22,6 +22,9 @@ output "rds_username" {
   value = aws_db_instance.rds-db.username
 }
 
+output "rds_port" {
+  value = aws_db_instance.rds-db.port
+}
 output "vpc" {
   value = aws_vpc.vpc.id
 }
