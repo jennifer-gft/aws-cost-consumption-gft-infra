@@ -7,10 +7,12 @@ chmod +x requirements.txt
 FILE=requirements.txt
 
 if [ -f "$FILE" ]; then
-  echo "Installing dependencies..."
+  echo "Installing dependencies for infra..."
   echo "From: requirement.txt file exists..."
-  pip3 install --target ./package -r "$FILE"
+  pip3 install -U --target . -r "$FILE"
 
 else
   echo "Error: requirements.txt does not exist!"
 fi
+
+
