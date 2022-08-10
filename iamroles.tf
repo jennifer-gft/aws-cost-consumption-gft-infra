@@ -25,7 +25,7 @@ EOF
 }
 
 resource "aws_iam_policy" "lambda_policy" {
-  name = "${var.prefix}-gft-lambda-policy"
+  name = "cross-account-lambda-sqs-policy"
 
   policy = <<-EOF
 {

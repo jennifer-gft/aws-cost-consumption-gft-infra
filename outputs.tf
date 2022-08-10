@@ -10,6 +10,10 @@ output "rds_arn" {
   value = aws_db_instance.rds-db.arn
 }
 
+output "pass" {
+  value = data.aws_secretsmanager_secret.secrets
+}
+
 output "rds_endpoint" {
   value = aws_db_instance.rds-db.endpoint
 }
