@@ -47,7 +47,7 @@ resource "aws_lambda_function" "aws_lambda" {
       region      = var.region
       db_host     = aws_db_instance.rds-db.address
       db_username = aws_db_instance.rds-db.username
-      db_password = "foo12345678"
+      db_password = jsondecode(data.aws_secretsmanager_secret_version.secretVars.secret_string)["password"]
       db_port     = aws_db_instance.rds-db.port
       db_name     = aws_db_instance.rds-db.name
     }
