@@ -32,42 +32,37 @@ def create_table():
     logger.setLevel(logging.INFO)
     with psycopg2.connect(f"host={ENDPOINT} dbname={DBNAME} user={USER} password={PASS} ") as conn:
             with conn.cursor() as cur:        
-                cur.execute("""CREATE TABLE IF NOT EXISTS customers (
-                            client_id int,
-                            client_name varchar(255),
-                            project varchar(255),
-                            environment varchar(255),
-                            total_aws_accounts int,
-                            descriptions varchar(255),
-                            PRIMARY KEY(client_id)
-                        );
-                        
-                        CREATE TABLE IF NOT EXISTS customer_forecast (
-                            client_id int NOT NULL,
-                            client_name varchar(255),
-                            project varchar(255),
-                            environment varchar(255),
-                            total_aws_accounts int,
-                            descriptions varchar(255)
-                            
+                cur.execute("""CREATE TABLE public.customer (
+                            client_id SERIAL UNIQUE,
+                            client_name varchar NOT NULL,
+                            project varchar NOT NULL,
+                            environment varchar NOT NULL,
+                            total_aws_accounts int4 NOT NULL,
+                            description varchar NULL,
+                            CONSTRAINT customer_un UNIQUE (client_name, project)
                         );
 
-                        CREATE TABLE IF NOT EXISTS services_gft (
-                            client_id int NOT NULL,
-                            aws_service varchar(255),
-                            time_period_start date,
-                            time_period_end date,
-                            value varchar(255),
-                            comments varchar(255)
+                        CREATE TABLE public.services (
+                            service_id SERIAL UNIQUE,
+                            client_id int8 not NULL,
+                            aws_services varchar NULL,
+                            time_period_start date NOT NULL,
+                            time_period_end date NOT NULL,
+                            value numeric(5,2) NOT NULL,
+                            additional_comments varchar NULL,
+                            CONSTRAINT customer_service_fk foreign key (client_id) references public.customer(client_id)
                         );
 
-                        CREATE TABLE IF NOT EXISTS todd (
-                            client_id int NOT NULL,
-                            aws_service varchar(255),
-                            time_period_start date,
-                            time_period_end date,
-                            value varchar(255),
-                            comments varchar(255)
+                        CREATE TABLE public.forecast (
+                            forecast_id SERIAL UNIQUE,
+                            client_id int8 not NULL,
+                            time_period_start date NOT NULL,
+                            time_period_end date NOT NULL,
+                            amount numeric(5,2) NOT NULL,
+                            additional_comments varchar NULL,
+                            CONSTRAINT customer_forecast_fk foreign key (client_id) references public.customer(client_id),
+                            CONSTRAINT forecast_un UNIQUE (client_id, time_period_start,time_period_end)
+
                         );
                         
                         """)
