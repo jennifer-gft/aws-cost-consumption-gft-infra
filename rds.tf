@@ -1,5 +1,5 @@
 data "aws_secretsmanager_secret" "secrets" {
-  arn = "arn:aws:secretsmanager:eu-west-2:061683563079:secret:prod/rds/password-Ybewq3"
+  name = "prod/rds/password"
 }
 
 data "aws_secretsmanager_secret_version" "secretVers" {
@@ -17,7 +17,7 @@ resource "aws_db_instance" "rds-db" {
   multi_az                = false
   name                    = "gftclientdb"
   #parameter_group_name     = "mydbparamgroup1" # if you have tuned it
-  password               = data.aws_secretsmanager_secret_version.secretVers.secret_string
+  password               = jsondecode(data.aws_secretsmanager_secret_version.secretVars.secret_string)["password"]
   port                   = 5432
   publicly_accessible    = true
   storage_encrypted      = true # you should always do this
