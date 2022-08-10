@@ -19,48 +19,10 @@ resource "aws_iam_role" "lambda_role" {
     ]
   }
 EOF
-  tags = {
-    Owner = var.project_name
-  }
 }
 
-resource "aws_iam_policy" "lambda_policy" {
-  name = "cross-account-lambda-sqs-policy"
-
-  policy = <<-EOF
-{
-    "Statement": [
-        {
-            "Action": [
-                "logs:CreateLogGroup",
-                "logs:CreateLogStream",
-                "logs:PutLogEvents"
-            ],
-            "Effect": "Allow",
-            "Resource": "*"
-        },
-        {
-            "Action" : [
-                "ce:*"
-                ],
-                "Effect" : "Allow",
-                "Resource": "*"
-        },
-        {
-            "Action" : [
-                "sqs:*"
-                ],
-                "Effect" : "Allow",
-                "Resource" : "*"
-        }
-    ],
-    
-    "Version": "2012-10-17"
-}
-EOF
+resource "aws_iam_role_policy_attachment" "infra_policy" {
+  role   = aws_iam_role.lambda_role.name
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaSQSQueueExecutionRole"
 }
 
-resource "aws_iam_role_policy_attachment" "additional_policies" {
-  role       = aws_iam_role.lambda_role.name
-  policy_arn = aws_iam_policy.lambda_policy.arn
-}
