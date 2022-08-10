@@ -1,3 +1,11 @@
+data "aws_secretsmanager_secret" "secrets" {
+  name = "prod/rds/password"
+}
+
+data "aws_secretsmanager_secret_version" "secretVers" {
+  secret_id = data.aws_secretsmanager_secret.secrets.id
+}
+
 resource "aws_db_instance" "rds-db" {
   allocated_storage       = 256 # gigabytes
   backup_retention_period = 7   # in days
@@ -9,7 +17,7 @@ resource "aws_db_instance" "rds-db" {
   multi_az                = false
   name                    = "gftclientdb"
   #parameter_group_name     = "mydbparamgroup1" # if you have tuned it
-  password               = var.db_password
+  password               = jsondecode(data.aws_secretsmanager_secret_version.secretVars.secret_string)["password"]
   port                   = 5432
   publicly_accessible    = true
   storage_encrypted      = true # you should always do this

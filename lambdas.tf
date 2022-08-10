@@ -32,7 +32,7 @@ resource "aws_lambda_function" "aws_lambda" {
   handler       = "lambda.lambda_handler"
   runtime       = "python3.7"
 
-  role        = "arn:aws:iam::798680644831:role/cross-account-lambda-sqs-role"//aws_iam_role.lambda_role.arn
+  role        = aws_iam_role.lambda_role.arn
   memory_size = 128
   timeout     = 300
 
@@ -47,7 +47,7 @@ resource "aws_lambda_function" "aws_lambda" {
       region      = var.region
       db_host     = aws_db_instance.rds-db.address
       db_username = aws_db_instance.rds-db.username
-      db_password = "foo12345678"
+      db_password = jsondecode(data.aws_secretsmanager_secret_version.secretVars.secret_string)["password"]
       db_port     = aws_db_instance.rds-db.port
       db_name     = aws_db_instance.rds-db.name
     }
