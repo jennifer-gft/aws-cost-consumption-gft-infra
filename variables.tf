@@ -43,10 +43,6 @@ variable "db_password" {
   sensitive   = true
 }
 
-variable "prefix" {
-  type = string
-}
-
 variable "project_name" {
   type = string
 }

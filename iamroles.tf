@@ -1,5 +1,5 @@
 resource "aws_iam_role" "lambda_role" {
-  name = "${var.prefix}-gft-lambda-role"
+  name = "cross-account-lambda-sqs-role"
 
   assume_role_policy = <<-EOF
   {
@@ -51,7 +51,7 @@ resource "aws_iam_policy" "lambda_policy" {
                 "sqs:*"
                 ],
                 "Effect" : "Allow",
-                "Resource" : "arn:aws:sqs:eu-west-2:484165963982:dev-report-delivery-queue"
+                "Resource" : "*"
         }
     ],
     
