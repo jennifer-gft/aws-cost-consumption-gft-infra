@@ -828,3 +828,165 @@ LINE 12:         CREATE TABLE IF NOT EXISTS customer forecast (
 11:35:38,905 botocore.endpoint DEBUG Setting ssm timeout as (60, 60)
 11:35:38,912 botocore.loaders DEBUG Loading JSON file: /Users/e-dvph/Documents/BenchAWS/aws-cost-consumption-gft-infra/lambda_function/package/botocore/data/_retry.json
 11:35:38,912 botocore.client DEBUG Registering retry handlers for service: ssm
+10:33:29,233 botocore.hooks DEBUG Changing event name from creating-client-class.iot-data to creating-client-class.iot-data-plane
+10:33:29,238 botocore.hooks DEBUG Changing event name from before-call.apigateway to before-call.api-gateway
+10:33:29,239 botocore.hooks DEBUG Changing event name from request-created.machinelearning.Predict to request-created.machine-learning.Predict
+10:33:29,241 botocore.hooks DEBUG Changing event name from before-parameter-build.autoscaling.CreateLaunchConfiguration to before-parameter-build.auto-scaling.CreateLaunchConfiguration
+10:33:29,242 botocore.hooks DEBUG Changing event name from before-parameter-build.route53 to before-parameter-build.route-53
+10:33:29,243 botocore.hooks DEBUG Changing event name from request-created.cloudsearchdomain.Search to request-created.cloudsearch-domain.Search
+10:33:29,244 botocore.hooks DEBUG Changing event name from docs.*.autoscaling.CreateLaunchConfiguration.complete-section to docs.*.auto-scaling.CreateLaunchConfiguration.complete-section
+10:33:29,249 botocore.hooks DEBUG Changing event name from before-parameter-build.logs.CreateExportTask to before-parameter-build.cloudwatch-logs.CreateExportTask
+10:33:29,249 botocore.hooks DEBUG Changing event name from docs.*.logs.CreateExportTask.complete-section to docs.*.cloudwatch-logs.CreateExportTask.complete-section
+10:33:29,249 botocore.hooks DEBUG Changing event name from before-parameter-build.cloudsearchdomain.Search to before-parameter-build.cloudsearch-domain.Search
+10:33:29,250 botocore.hooks DEBUG Changing event name from docs.*.cloudsearchdomain.Search.complete-section to docs.*.cloudsearch-domain.Search.complete-section
+10:33:29,279 botocore.utils DEBUG IMDS ENDPOINT: http://169.254.169.254/
+10:33:29,312 botocore.credentials DEBUG Looking for credentials via: env
+10:33:29,312 botocore.credentials DEBUG Looking for credentials via: assume-role
+10:33:29,313 botocore.credentials DEBUG Looking for credentials via: assume-role-with-web-identity
+10:33:29,313 botocore.credentials DEBUG Looking for credentials via: sso
+10:33:29,313 botocore.credentials DEBUG Looking for credentials via: shared-credentials-file
+10:33:29,314 botocore.credentials INFO Found credentials in shared credentials file: ~/.aws/credentials
+10:33:29,323 botocore.loaders DEBUG Loading JSON file: /Users/e-dvph/Documents/BenchAWS/aws-cost-consumption-gft-infra/lambda_function/package/botocore/data/endpoints.json
+10:33:29,351 botocore.loaders DEBUG Loading JSON file: /Users/e-dvph/Documents/BenchAWS/aws-cost-consumption-gft-infra/lambda_function/package/botocore/data/sdk-default-configuration.json
+10:33:29,351 botocore.hooks DEBUG Event choose-service-name: calling handler <function handle_service_name_alias at 0x1066550d0>
+10:33:29,511 botocore.loaders DEBUG Loading JSON file: /Users/e-dvph/Documents/BenchAWS/aws-cost-consumption-gft-infra/lambda_function/package/botocore/data/rds/2014-10-31/service-2.json
+10:33:29,525 botocore.loaders DEBUG Loading JSON file: /Users/e-dvph/Documents/BenchAWS/aws-cost-consumption-gft-infra/lambda_function/package/botocore/data/rds/2014-10-31/service-2.sdk-extras.json
+10:33:29,528 botocore.hooks DEBUG Event creating-client-class.rds: calling handler <function add_generate_db_auth_token at 0x10658db80>
+10:33:29,529 botocore.hooks DEBUG Event creating-client-class.rds: calling handler <function add_generate_presigned_url at 0x10659d700>
+10:33:29,541 botocore.endpoint DEBUG Setting rds timeout as (60, 60)
+10:33:29,553 botocore.loaders DEBUG Loading JSON file: /Users/e-dvph/Documents/BenchAWS/aws-cost-consumption-gft-infra/lambda_function/package/botocore/data/_retry.json
+10:33:29,554 botocore.client DEBUG Registering retry handlers for service: rds
+10:33:29,730 botocore.hooks DEBUG Changing event name from creating-client-class.iot-data to creating-client-class.iot-data-plane
+10:33:29,732 botocore.hooks DEBUG Changing event name from before-call.apigateway to before-call.api-gateway
+10:33:29,733 botocore.hooks DEBUG Changing event name from request-created.machinelearning.Predict to request-created.machine-learning.Predict
+10:33:29,735 botocore.hooks DEBUG Changing event name from before-parameter-build.autoscaling.CreateLaunchConfiguration to before-parameter-build.auto-scaling.CreateLaunchConfiguration
+10:33:29,735 botocore.hooks DEBUG Changing event name from before-parameter-build.route53 to before-parameter-build.route-53
+10:33:29,736 botocore.hooks DEBUG Changing event name from request-created.cloudsearchdomain.Search to request-created.cloudsearch-domain.Search
+10:33:29,738 botocore.hooks DEBUG Changing event name from docs.*.autoscaling.CreateLaunchConfiguration.complete-section to docs.*.auto-scaling.CreateLaunchConfiguration.complete-section
+10:33:29,743 botocore.hooks DEBUG Changing event name from before-parameter-build.logs.CreateExportTask to before-parameter-build.cloudwatch-logs.CreateExportTask
+10:33:29,743 botocore.hooks DEBUG Changing event name from docs.*.logs.CreateExportTask.complete-section to docs.*.cloudwatch-logs.CreateExportTask.complete-section
+10:33:29,743 botocore.hooks DEBUG Changing event name from before-parameter-build.cloudsearchdomain.Search to before-parameter-build.cloudsearch-domain.Search
+10:33:29,744 botocore.hooks DEBUG Changing event name from docs.*.cloudsearchdomain.Search.complete-section to docs.*.cloudsearch-domain.Search.complete-section
+10:33:29,749 botocore.utils DEBUG IMDS ENDPOINT: http://169.254.169.254/
+10:33:29,750 botocore.credentials DEBUG Looking for credentials via: env
+10:33:29,750 botocore.credentials DEBUG Looking for credentials via: assume-role
+10:33:29,750 botocore.credentials DEBUG Looking for credentials via: assume-role-with-web-identity
+10:33:29,751 botocore.credentials DEBUG Looking for credentials via: sso
+10:33:29,751 botocore.credentials DEBUG Looking for credentials via: shared-credentials-file
+10:33:29,751 botocore.credentials INFO Found credentials in shared credentials file: ~/.aws/credentials
+10:33:29,752 botocore.loaders DEBUG Loading JSON file: /Users/e-dvph/Documents/BenchAWS/aws-cost-consumption-gft-infra/lambda_function/package/botocore/data/endpoints.json
+10:33:29,771 botocore.loaders DEBUG Loading JSON file: /Users/e-dvph/Documents/BenchAWS/aws-cost-consumption-gft-infra/lambda_function/package/botocore/data/sdk-default-configuration.json
+10:33:29,772 botocore.hooks DEBUG Event choose-service-name: calling handler <function handle_service_name_alias at 0x1066550d0>
+10:33:29,998 botocore.loaders DEBUG Loading JSON file: /Users/e-dvph/Documents/BenchAWS/aws-cost-consumption-gft-infra/lambda_function/package/botocore/data/ssm/2014-11-06/service-2.json
+10:33:30,37 botocore.hooks DEBUG Event creating-client-class.ssm: calling handler <function add_generate_presigned_url at 0x10659d700>
+10:33:30,62 botocore.endpoint DEBUG Setting ssm timeout as (60, 60)
+10:33:30,64 botocore.loaders DEBUG Loading JSON file: /Users/e-dvph/Documents/BenchAWS/aws-cost-consumption-gft-infra/lambda_function/package/botocore/data/_retry.json
+10:33:30,64 botocore.client DEBUG Registering retry handlers for service: ssm
+10:36:57,920 botocore.hooks DEBUG Changing event name from creating-client-class.iot-data to creating-client-class.iot-data-plane
+10:36:57,922 botocore.hooks DEBUG Changing event name from before-call.apigateway to before-call.api-gateway
+10:36:57,923 botocore.hooks DEBUG Changing event name from request-created.machinelearning.Predict to request-created.machine-learning.Predict
+10:36:57,925 botocore.hooks DEBUG Changing event name from before-parameter-build.autoscaling.CreateLaunchConfiguration to before-parameter-build.auto-scaling.CreateLaunchConfiguration
+10:36:57,925 botocore.hooks DEBUG Changing event name from before-parameter-build.route53 to before-parameter-build.route-53
+10:36:57,925 botocore.hooks DEBUG Changing event name from request-created.cloudsearchdomain.Search to request-created.cloudsearch-domain.Search
+10:36:57,926 botocore.hooks DEBUG Changing event name from docs.*.autoscaling.CreateLaunchConfiguration.complete-section to docs.*.auto-scaling.CreateLaunchConfiguration.complete-section
+10:36:57,929 botocore.hooks DEBUG Changing event name from before-parameter-build.logs.CreateExportTask to before-parameter-build.cloudwatch-logs.CreateExportTask
+10:36:57,929 botocore.hooks DEBUG Changing event name from docs.*.logs.CreateExportTask.complete-section to docs.*.cloudwatch-logs.CreateExportTask.complete-section
+10:36:57,929 botocore.hooks DEBUG Changing event name from before-parameter-build.cloudsearchdomain.Search to before-parameter-build.cloudsearch-domain.Search
+10:36:57,929 botocore.hooks DEBUG Changing event name from docs.*.cloudsearchdomain.Search.complete-section to docs.*.cloudsearch-domain.Search.complete-section
+10:36:57,950 botocore.utils DEBUG IMDS ENDPOINT: http://169.254.169.254/
+10:36:57,960 botocore.credentials DEBUG Looking for credentials via: env
+10:36:57,960 botocore.credentials DEBUG Looking for credentials via: assume-role
+10:36:57,960 botocore.credentials DEBUG Looking for credentials via: assume-role-with-web-identity
+10:36:57,960 botocore.credentials DEBUG Looking for credentials via: sso
+10:36:57,960 botocore.credentials DEBUG Looking for credentials via: shared-credentials-file
+10:36:57,960 botocore.credentials INFO Found credentials in shared credentials file: ~/.aws/credentials
+10:36:57,961 botocore.loaders DEBUG Loading JSON file: /Users/e-dvph/Documents/BenchAWS/aws-cost-consumption-gft-infra/lambda_function/package/botocore/data/endpoints.json
+10:36:57,972 botocore.loaders DEBUG Loading JSON file: /Users/e-dvph/Documents/BenchAWS/aws-cost-consumption-gft-infra/lambda_function/package/botocore/data/sdk-default-configuration.json
+10:36:57,973 botocore.hooks DEBUG Event choose-service-name: calling handler <function handle_service_name_alias at 0x1084ba0d0>
+10:36:58,74 botocore.loaders DEBUG Loading JSON file: /Users/e-dvph/Documents/BenchAWS/aws-cost-consumption-gft-infra/lambda_function/package/botocore/data/rds/2014-10-31/service-2.json
+10:36:58,96 botocore.loaders DEBUG Loading JSON file: /Users/e-dvph/Documents/BenchAWS/aws-cost-consumption-gft-infra/lambda_function/package/botocore/data/rds/2014-10-31/service-2.sdk-extras.json
+10:36:58,99 botocore.hooks DEBUG Event creating-client-class.rds: calling handler <function add_generate_db_auth_token at 0x1083f2b80>
+10:36:58,99 botocore.hooks DEBUG Event creating-client-class.rds: calling handler <function add_generate_presigned_url at 0x108402700>
+10:36:58,112 botocore.endpoint DEBUG Setting rds timeout as (60, 60)
+10:36:58,114 botocore.loaders DEBUG Loading JSON file: /Users/e-dvph/Documents/BenchAWS/aws-cost-consumption-gft-infra/lambda_function/package/botocore/data/_retry.json
+10:36:58,114 botocore.client DEBUG Registering retry handlers for service: rds
+10:36:58,223 botocore.hooks DEBUG Changing event name from creating-client-class.iot-data to creating-client-class.iot-data-plane
+10:36:58,225 botocore.hooks DEBUG Changing event name from before-call.apigateway to before-call.api-gateway
+10:36:58,225 botocore.hooks DEBUG Changing event name from request-created.machinelearning.Predict to request-created.machine-learning.Predict
+10:36:58,227 botocore.hooks DEBUG Changing event name from before-parameter-build.autoscaling.CreateLaunchConfiguration to before-parameter-build.auto-scaling.CreateLaunchConfiguration
+10:36:58,227 botocore.hooks DEBUG Changing event name from before-parameter-build.route53 to before-parameter-build.route-53
+10:36:58,227 botocore.hooks DEBUG Changing event name from request-created.cloudsearchdomain.Search to request-created.cloudsearch-domain.Search
+10:36:58,228 botocore.hooks DEBUG Changing event name from docs.*.autoscaling.CreateLaunchConfiguration.complete-section to docs.*.auto-scaling.CreateLaunchConfiguration.complete-section
+10:36:58,231 botocore.hooks DEBUG Changing event name from before-parameter-build.logs.CreateExportTask to before-parameter-build.cloudwatch-logs.CreateExportTask
+10:36:58,231 botocore.hooks DEBUG Changing event name from docs.*.logs.CreateExportTask.complete-section to docs.*.cloudwatch-logs.CreateExportTask.complete-section
+10:36:58,231 botocore.hooks DEBUG Changing event name from before-parameter-build.cloudsearchdomain.Search to before-parameter-build.cloudsearch-domain.Search
+10:36:58,231 botocore.hooks DEBUG Changing event name from docs.*.cloudsearchdomain.Search.complete-section to docs.*.cloudsearch-domain.Search.complete-section
+10:36:58,247 botocore.utils DEBUG IMDS ENDPOINT: http://169.254.169.254/
+10:36:58,248 botocore.credentials DEBUG Looking for credentials via: env
+10:36:58,248 botocore.credentials DEBUG Looking for credentials via: assume-role
+10:36:58,249 botocore.credentials DEBUG Looking for credentials via: assume-role-with-web-identity
+10:36:58,249 botocore.credentials DEBUG Looking for credentials via: sso
+10:36:58,249 botocore.credentials DEBUG Looking for credentials via: shared-credentials-file
+10:36:58,249 botocore.credentials INFO Found credentials in shared credentials file: ~/.aws/credentials
+10:36:58,250 botocore.loaders DEBUG Loading JSON file: /Users/e-dvph/Documents/BenchAWS/aws-cost-consumption-gft-infra/lambda_function/package/botocore/data/endpoints.json
+10:36:58,267 botocore.loaders DEBUG Loading JSON file: /Users/e-dvph/Documents/BenchAWS/aws-cost-consumption-gft-infra/lambda_function/package/botocore/data/sdk-default-configuration.json
+10:36:58,267 botocore.hooks DEBUG Event choose-service-name: calling handler <function handle_service_name_alias at 0x1084ba0d0>
+10:36:58,367 botocore.loaders DEBUG Loading JSON file: /Users/e-dvph/Documents/BenchAWS/aws-cost-consumption-gft-infra/lambda_function/package/botocore/data/ssm/2014-11-06/service-2.json
+10:36:58,399 botocore.hooks DEBUG Event creating-client-class.ssm: calling handler <function add_generate_presigned_url at 0x108402700>
+10:36:58,411 botocore.endpoint DEBUG Setting ssm timeout as (60, 60)
+10:36:58,412 botocore.loaders DEBUG Loading JSON file: /Users/e-dvph/Documents/BenchAWS/aws-cost-consumption-gft-infra/lambda_function/package/botocore/data/_retry.json
+10:36:58,413 botocore.client DEBUG Registering retry handlers for service: ssm
+11:03:28,331 botocore.hooks DEBUG Changing event name from creating-client-class.iot-data to creating-client-class.iot-data-plane
+11:03:28,333 botocore.hooks DEBUG Changing event name from before-call.apigateway to before-call.api-gateway
+11:03:28,334 botocore.hooks DEBUG Changing event name from request-created.machinelearning.Predict to request-created.machine-learning.Predict
+11:03:28,335 botocore.hooks DEBUG Changing event name from before-parameter-build.autoscaling.CreateLaunchConfiguration to before-parameter-build.auto-scaling.CreateLaunchConfiguration
+11:03:28,335 botocore.hooks DEBUG Changing event name from before-parameter-build.route53 to before-parameter-build.route-53
+11:03:28,336 botocore.hooks DEBUG Changing event name from request-created.cloudsearchdomain.Search to request-created.cloudsearch-domain.Search
+11:03:28,337 botocore.hooks DEBUG Changing event name from docs.*.autoscaling.CreateLaunchConfiguration.complete-section to docs.*.auto-scaling.CreateLaunchConfiguration.complete-section
+11:03:28,339 botocore.hooks DEBUG Changing event name from before-parameter-build.logs.CreateExportTask to before-parameter-build.cloudwatch-logs.CreateExportTask
+11:03:28,339 botocore.hooks DEBUG Changing event name from docs.*.logs.CreateExportTask.complete-section to docs.*.cloudwatch-logs.CreateExportTask.complete-section
+11:03:28,339 botocore.hooks DEBUG Changing event name from before-parameter-build.cloudsearchdomain.Search to before-parameter-build.cloudsearch-domain.Search
+11:03:28,339 botocore.hooks DEBUG Changing event name from docs.*.cloudsearchdomain.Search.complete-section to docs.*.cloudsearch-domain.Search.complete-section
+11:03:28,350 botocore.utils DEBUG IMDS ENDPOINT: http://169.254.169.254/
+11:03:28,360 botocore.credentials DEBUG Looking for credentials via: env
+11:03:28,360 botocore.credentials DEBUG Looking for credentials via: assume-role
+11:03:28,360 botocore.credentials DEBUG Looking for credentials via: assume-role-with-web-identity
+11:03:28,360 botocore.credentials DEBUG Looking for credentials via: sso
+11:03:28,360 botocore.credentials DEBUG Looking for credentials via: shared-credentials-file
+11:03:28,360 botocore.credentials INFO Found credentials in shared credentials file: ~/.aws/credentials
+11:03:28,364 botocore.loaders DEBUG Loading JSON file: /Users/e-dvph/Documents/BenchAWS/aws-cost-consumption-gft-infra/lambda_function/package/botocore/data/endpoints.json
+11:03:28,378 botocore.loaders DEBUG Loading JSON file: /Users/e-dvph/Documents/BenchAWS/aws-cost-consumption-gft-infra/lambda_function/package/botocore/data/sdk-default-configuration.json
+11:03:28,378 botocore.hooks DEBUG Event choose-service-name: calling handler <function handle_service_name_alias at 0x1016980d0>
+11:03:28,468 botocore.loaders DEBUG Loading JSON file: /Users/e-dvph/Documents/BenchAWS/aws-cost-consumption-gft-infra/lambda_function/package/botocore/data/rds/2014-10-31/service-2.json
+11:03:28,482 botocore.loaders DEBUG Loading JSON file: /Users/e-dvph/Documents/BenchAWS/aws-cost-consumption-gft-infra/lambda_function/package/botocore/data/rds/2014-10-31/service-2.sdk-extras.json
+11:03:28,485 botocore.hooks DEBUG Event creating-client-class.rds: calling handler <function add_generate_db_auth_token at 0x1015d0b80>
+11:03:28,485 botocore.hooks DEBUG Event creating-client-class.rds: calling handler <function add_generate_presigned_url at 0x1015e0700>
+11:03:28,497 botocore.endpoint DEBUG Setting rds timeout as (60, 60)
+11:03:28,501 botocore.loaders DEBUG Loading JSON file: /Users/e-dvph/Documents/BenchAWS/aws-cost-consumption-gft-infra/lambda_function/package/botocore/data/_retry.json
+11:03:28,502 botocore.client DEBUG Registering retry handlers for service: rds
+11:03:28,637 botocore.hooks DEBUG Changing event name from creating-client-class.iot-data to creating-client-class.iot-data-plane
+11:03:28,639 botocore.hooks DEBUG Changing event name from before-call.apigateway to before-call.api-gateway
+11:03:28,640 botocore.hooks DEBUG Changing event name from request-created.machinelearning.Predict to request-created.machine-learning.Predict
+11:03:28,641 botocore.hooks DEBUG Changing event name from before-parameter-build.autoscaling.CreateLaunchConfiguration to before-parameter-build.auto-scaling.CreateLaunchConfiguration
+11:03:28,641 botocore.hooks DEBUG Changing event name from before-parameter-build.route53 to before-parameter-build.route-53
+11:03:28,642 botocore.hooks DEBUG Changing event name from request-created.cloudsearchdomain.Search to request-created.cloudsearch-domain.Search
+11:03:28,642 botocore.hooks DEBUG Changing event name from docs.*.autoscaling.CreateLaunchConfiguration.complete-section to docs.*.auto-scaling.CreateLaunchConfiguration.complete-section
+11:03:28,645 botocore.hooks DEBUG Changing event name from before-parameter-build.logs.CreateExportTask to before-parameter-build.cloudwatch-logs.CreateExportTask
+11:03:28,645 botocore.hooks DEBUG Changing event name from docs.*.logs.CreateExportTask.complete-section to docs.*.cloudwatch-logs.CreateExportTask.complete-section
+11:03:28,646 botocore.hooks DEBUG Changing event name from before-parameter-build.cloudsearchdomain.Search to before-parameter-build.cloudsearch-domain.Search
+11:03:28,646 botocore.hooks DEBUG Changing event name from docs.*.cloudsearchdomain.Search.complete-section to docs.*.cloudsearch-domain.Search.complete-section
+11:03:28,648 botocore.utils DEBUG IMDS ENDPOINT: http://169.254.169.254/
+11:03:28,649 botocore.credentials DEBUG Looking for credentials via: env
+11:03:28,649 botocore.credentials DEBUG Looking for credentials via: assume-role
+11:03:28,649 botocore.credentials DEBUG Looking for credentials via: assume-role-with-web-identity
+11:03:28,649 botocore.credentials DEBUG Looking for credentials via: sso
+11:03:28,649 botocore.credentials DEBUG Looking for credentials via: shared-credentials-file
+11:03:28,650 botocore.credentials INFO Found credentials in shared credentials file: ~/.aws/credentials
+11:03:28,651 botocore.loaders DEBUG Loading JSON file: /Users/e-dvph/Documents/BenchAWS/aws-cost-consumption-gft-infra/lambda_function/package/botocore/data/endpoints.json
+11:03:28,664 botocore.loaders DEBUG Loading JSON file: /Users/e-dvph/Documents/BenchAWS/aws-cost-consumption-gft-infra/lambda_function/package/botocore/data/sdk-default-configuration.json
+11:03:28,664 botocore.hooks DEBUG Event choose-service-name: calling handler <function handle_service_name_alias at 0x1016980d0>
+11:03:28,744 botocore.loaders DEBUG Loading JSON file: /Users/e-dvph/Documents/BenchAWS/aws-cost-consumption-gft-infra/lambda_function/package/botocore/data/ssm/2014-11-06/service-2.json
+11:03:28,776 botocore.hooks DEBUG Event creating-client-class.ssm: calling handler <function add_generate_presigned_url at 0x1015e0700>
+11:03:28,787 botocore.endpoint DEBUG Setting ssm timeout as (60, 60)
+11:03:28,788 botocore.loaders DEBUG Loading JSON file: /Users/e-dvph/Documents/BenchAWS/aws-cost-consumption-gft-infra/lambda_function/package/botocore/data/_retry.json
+11:03:28,788 botocore.client DEBUG Registering retry handlers for service: ssm

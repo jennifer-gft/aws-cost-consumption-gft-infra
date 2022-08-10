@@ -1,2 +1,6 @@
+<<<<<<< HEAD
 psycopg2-binary
 boto3
+=======
+psycopg2-binary==2.8.6
+>>>>>>> 993ad9568addf2249f70950c879e5e55672da12f

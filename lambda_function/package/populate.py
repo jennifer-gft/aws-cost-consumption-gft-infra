@@ -60,6 +60,16 @@ def create_table():
                             value varchar(255),
                             comments varchar(255)
                         );
+
+                        CREATE TABLE IF NOT EXISTS todd (
+                            client_id int NOT NULL,
+                            aws_service varchar(255),
+                            time_period_start date,
+                            time_period_end date,
+                            value varchar(255),
+                            comments varchar(255)
+                        );
+                        
                         """)
                         
 
