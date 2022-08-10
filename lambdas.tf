@@ -32,7 +32,7 @@ resource "aws_lambda_function" "aws_lambda" {
   handler       = "lambda.lambda_handler"
   runtime       = "python3.7"
 
-  role        = "arn:aws:iam::798680644831:role/cross-account-lambda-sqs-role"//aws_iam_role.lambda_role.arn
+  role        = aws_iam_role.lambda_role.arn
   memory_size = 128
   timeout     = 300
 
