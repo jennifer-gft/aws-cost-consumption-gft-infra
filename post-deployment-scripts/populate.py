@@ -16,12 +16,12 @@ logging.basicConfig(filename="logname",
                     datefmt='%H:%M:%S',
                     level=logging.DEBUG)
 
-ENDPOINT="mydb1.crwrwfmegyrd.eu-west-2.rds.amazonaws.com"
+ENDPOINT="gftclientdb.crwrwfmegyrd.eu-west-2.rds.amazonaws.com"
 PORT="5432"
-USER="mydb1"#gftadmin
+USER="gftadmin"#gftadmin
 REGION="eu-west-2"
-DBNAME="mydb1" #gftclientdb
-PASS="foo12345678"
+DBNAME="gftclientdb" #gftclientdb
+PASS="!GftRDSProdPass"
               
             
 
