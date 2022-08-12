@@ -9,8 +9,6 @@ tfplan
 
 package/*
 
-
-
 *.zip
 
 ####don't ignore these files

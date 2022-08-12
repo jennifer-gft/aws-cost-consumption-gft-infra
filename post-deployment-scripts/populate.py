@@ -3,9 +3,6 @@ import boto3
 import psycopg2
 import logging
 import logging.handlers
-
-
-import psycopg2
 import sys
 import boto3
 import os
@@ -86,3 +83,10 @@ try:
     print(query_results)
 except Exception as e:
     print("Database connection failed due to {}".format(e))  
+finally:
+        # closing database connection.
+        if conn:
+            conn.commit()
+            cur.close()
+            conn.close()
+            print("PostgreSQL connection is closed")
