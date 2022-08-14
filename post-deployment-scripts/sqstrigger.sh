@@ -1,10 +1,18 @@
 #!/bin/bash
-eventsource=arn:aws:sqs:eu-west-2:484165963982:dev-report-delivery-queue
-aws lambda create-event-source-mapping --function-name client-report-storage-master --batch-size 1 --maximum-batching-window-in-seconds 300 --event-source-arn $eventsource
+eventsource=${1}
 
-if [ $? -eq 0 ]
+#Extract lambda region from arn input
+region=`echo $eventsource | awk '{split($0,a,":"); print a[4]}'`
+
+echo "Adding SQS trigger to the lambda - $eventsource"
+ 
+cli=`aws lambda --region $region create-event-source-mapping --function-name client-report-storage-master --batch-size 1 --maximum-batching-window-in-seconds 60 --event-source-arn $eventsource`
+
+if [ $? == 0 ];
 then
-    echo "Success. The event source trigger was triggered successfully"
+    echo "Success. The event source trigger was added successfully"
+    echo $cli
 else
     echo "Failure. The event source trigger was not successful"
+    exit 1
 fi
