@@ -60,6 +60,8 @@ def lambda_handler(event, context):
                 amount=float(record['MeanValue'])
                 if int(total_aws_accounts) > 1:
                     comments= "Amount times "+ total_aws_accounts + " accounts"
+                else:
+                    comments="n/a"
                 cursor.execute("INSERT INTO public.forecast (client_id, time_period_start, time_period_end, amount, additional_comments) VALUES(%s,%s,%s,%s,%s) " \
                     " ON CONFLICT ON CONSTRAINT forecast_un DO " \
                     " NOTHING",(id_of_row, forecast_period_start,forecast_period_end,amount,comments)) 
