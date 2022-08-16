@@ -45,7 +45,7 @@ def create_table():
                             aws_services varchar NULL,
                             time_period_start date NOT NULL,
                             time_period_end date NOT NULL,
-                            value numeric(5,2) NOT NULL,
+                            value numeric NOT NULL,
                             additional_comments varchar NULL,
                             CONSTRAINT customer_service_fk foreign key (client_id) references public.customer(client_id)
                         );
@@ -55,7 +55,7 @@ def create_table():
                             client_id int8 not NULL,
                             time_period_start date NOT NULL,
                             time_period_end date NOT NULL,
-                            amount numeric(5,2) NOT NULL,
+                            amount numeric NOT NULL,
                             additional_comments varchar NULL,
                             CONSTRAINT customer_forecast_fk foreign key (client_id) references public.customer(client_id),
                             CONSTRAINT forecast_un UNIQUE (client_id, time_period_start,time_period_end)
