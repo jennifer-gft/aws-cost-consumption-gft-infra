@@ -8,19 +8,21 @@ import os
 def lambda_handler(event, context):
     event_json=event['Records'][0]['body']
     res=json.loads(event_json)
-    print(res['report_type'])
+    print(res)
     client_name = res["client_name"]
     project = res["project_name"]
     description = res["description"]
     environment = res["client_env"]
     total_aws_accounts = res["total_env"]
+    country = res["country"]
+
     try:
         connection = psycopg2.connect(user=os.getenv("db_username", default=None),
                                   password=os.getenv("db_password", default=None),
                                   host=os.getenv("db_host", default=None),
                                   port=os.getenv("db_port", default=5432),
                                   database=os.getenv("db_name", default=None))
-        print(connection)
+
         cursor = connection.cursor()
 
         cursor.execute("SELECT client_id from public.customer WHERE client_name = %s and project = %s", (client_name, project))
@@ -28,8 +30,9 @@ def lambda_handler(event, context):
         if cursor.rowcount > 0:
             id_of_row = cursor.fetchone()[0]
         else:
-            cursor.execute("INSERT INTO public.customer ( client_name, project, environment, total_aws_accounts, description) VALUES (%s,%s,%s,%s,%s) ON CONFLICT ON CONSTRAINT "\
-                "customer_un DO NOTHING",(client_name, project, environment, total_aws_accounts, description))
+            cursor.execute("INSERT INTO public.customer ( client_name, project, environment, total_aws_accounts, description, country) VALUES (%s,%s,%s,%s,%s,%s) ON CONFLICT ON CONSTRAINT "\
+                "customer_un DO NOTHING",(client_name, project, environment, total_aws_accounts, description, country))
+           
             id_of_row = cursor.fetchone()[0]        
         print("Client id => ",id_of_row)
 

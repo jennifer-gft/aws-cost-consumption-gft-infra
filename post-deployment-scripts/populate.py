@@ -36,6 +36,7 @@ def create_table():
                             environment varchar NOT NULL,
                             total_aws_accounts int4 NOT NULL,
                             description varchar NULL,
+                            country varchar NOT NULL,
                             CONSTRAINT customer_un UNIQUE (client_name, project)
                         );
 
